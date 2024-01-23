@@ -1,6 +1,5 @@
 import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-const tweetInput = document.getElementById('tweets-input')
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -34,7 +33,6 @@ function handleLikeClick(tweetId){
 }
 
 function handleRetweetClick(tweetId){
-    console.log(tweetId)
     const targetTweetObj = tweetsData.filter(function(tweet){
         return tweet.uuid === tweetId
     })[0]
@@ -54,6 +52,7 @@ function handleReplyClick(replyId){
 }
 
 function handleTweetBtnClick(){ 
+    const tweetInput = document.getElementById('tweets-input')
     if(tweetInput.value){
         tweetsData.unshift({
             handle: `@scrimba`,
